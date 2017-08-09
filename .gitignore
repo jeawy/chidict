@@ -1,0 +1,7 @@
+﻿*.zip
+/media
+/lechi/settings.py
+*/migrations
+*.pyc
+*.docx
+*.pdf

@@ -1,0 +1,123 @@
+.li_upload_head_img
+{
+    
+    color: green;
+    border: 2px dashed red;
+}
+
+.li_upload_head_img a
+{
+    color: red;
+}
+.fa-unupload-header
+{ 
+    color: red;
+}
+
+.notepaper
+{
+    min-height: 300px;
+    margin-top: 30px;
+}
+ .curly-quotes
+ {  
+     color:#087972;
+     font-size: 12px;
+ }
+ 
+ .quote-by
+ {    
+      font-style:normal;
+      font-weight:bold;
+      color:#00BF9D;
+ }
+ 
+ .history
+ {
+     position: absolute;
+     float:right;
+     bottom:0;
+     margin-bottom:0;
+ }
+ 
+ 
+ .curly-quotes:before, .curly-quotes:after
+ {
+     font-size: 1.5em; 
+     line-height:38px;
+ }
+ .swiper-container {
+    width: 100%; 
+    margin-top:5px; 
+}  
+.swiper-slide1
+{
+    width: 100%; 
+}
+.swiper-slide3
+{
+    width: 100%;  
+}
+.swiper-slide2
+{
+    width: 100%;  
+}
+.swiper-container
+{
+    z-index: 0;
+}
+.kb_one_img
+{
+    width: 100%;
+    text-align: center;
+}
+
+.kb_one_img img
+{
+    width: 60%;
+}
+.home_h1
+{
+    text-align: center;
+}
+.home_hr
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.home_silder1_words
+{
+    text-align: center;
+    margin: 5px;
+    color: rgba(0,0,0,0.5);
+    font-family:"Microsoft Yahei","微软雅黑",Tahoma, Helvetica, Arial, STXihei, sans-serif;
+}
+.food-detail-title  a:link
+{
+    color: #e54102;
+}
+.slider3-img
+{
+    width: 150px;
+    height: 110px;
+}
+.new_home_silder1_words label
+{
+    font-weight: 200;
+}
+.col-newkb
+{ 
+    margin-top: 40px;
+    
+}
+.newkb{
+    color: rgba(0,0,0,0.8);
+    font-weight: 100;
+    font-size: 20px;
+    font-family:"Microsoft Yahei","微软雅黑",Tahoma, Helvetica, Arial, STXihei, sans-serif;
+}
+.row-words
+{
+    max-height: 20px;
+    overflow: hidden;
+}

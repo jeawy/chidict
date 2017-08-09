@@ -1,0 +1,219 @@
+{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"zh-CN" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title> {% block title %}{% endblock %}__吃典美食__分享正宗特色美食</title>
+<link rel="shortcut icon" href="/static/img/favorite.png">
+<link rel="icon" href="/static/img/favorite.png">
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/m_base.css" %}{% endblock %}" />
+{% block extrastyle %}
+<link rel="shortcut icon" href="/static/img/mhlogo.png">
+<link rel="icon" href="/static/img/mhlogo.png"> 
+<link rel="stylesheet" type="text/css" media="screen" href="/static/js/jquery.message.css" />
+
+<link rel="stylesheet"  href="/static/js/bootstrap-3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/m_base.css" />
+<link rel="stylesheet" href="/static/css/font-awesome-4.4.0/css/font-awesome.min.css"  />
+<link rel="stylesheet" href="/static/plugins/slideout-0.1.11/dist/styles.css">
+<link rel="stylesheet" href="/static/plugins/slideout-0.1.11/dist/fonts.css"> 
+<link rel="stylesheet" href="/static/plugins/slideout-0.1.11/dist/index.css" />
+<link rel="stylesheet" href="/static/css/m_brand.css" />
+
+{% endblock %}
+{% block blockbots %}<meta name="robots" content="index,follow" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="baidu-site-verification" content="hKUYlRDsI0" />
+<meta name="360-site-verification" content="539f70e7f92f9365d2454149774da56f" /> 
+<meta name='360_ssp_verify' content='84f78f16d24881386baa029e9972b1cd' />
+<meta name="sogou_site_verification" content="SVgLwsP90S"/>
+<meta name="keywords" content="{% block keywords%}告别千篇一律的小吃街，发现真正的特色美食. {%endblock%} 吃典美食_分享各地美食 " />
+<meta property="qc:admins" content="4250250767651026151416375" />
+<meta name="description" content="{% block description%}告别千篇一律的小吃街，发现真正的特色美食.  {%endblock%}" />
+
+{% endblock %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content='True' name='HandheldFriendly' /> 
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+ 
+{% block extrahead %}
+<script type="text/javascript"  src="/static/js/jquery-1.9.1.js" charset="utf-8" ></script>
+<script type="text/javascript"  src="/static/js/bootstrap-3.3.7/js/bootstrap.min.js" charset="utf-8" ></script>
+<script src="/static/plugins/slideout-0.1.11/dist/slideout.js"></script>
+<script> 
+    $(document).ready(function() {
+   {% if request.user.head_portrait and request.user%}
+        $('#id_user_portrait').css("background-image", "url({{request.user.head_portrait }})");
+        {% else %}
+        $('#id_user_portrait').css("background-image", "url('/static/img/portraint.jpg')");
+ {% endif %}
+    }); 
+ </script>
+{% endblock %}
+</head>
+{% load i18n %}
+
+<body > 
+    {% include 'admin/m_menu.html' %}
+
+    <div id="main" class="panel slideout-panel">  
+           <i class="fa fa-list fa-2x btn-hamburger js-slideout-toggle"  style="cursor:pointer"></i>
+           {% block nav-global %} 
+           {% endblock %}
+       
+            <div class="div_title">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3">
+                        </div>
+                        <div class="col-sm-6 col-xs-6 text-center">
+                            <label class="title">{{page_title}}</label>
+                        </div>
+                        <div class="col-sm-3 col-xs-3 text-right"> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+           
+           {% block content %} 
+           {% endblock %}
+           
+           {% block footer %}
+               {% block custom_footer %}
+               {% endblock %} 
+                <div id="footer">
+                    <div class="copyright">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-6 padding-no" >
+                                        <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备15017611号-3</a>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-3 padding-no" >
+                                        <a href="{% url 'base:contact_us' %}" target="_blank">联系我们</a>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-3 padding-no" >
+                                        <a href="{% url 'base:contact_us' %}" target="_blank">版权声明</a>
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="container">
+                                <div class="row">
+                                    版权所有：吃典网   Powered by <a href="www.map2family.com">map2family</a>
+                                </div>
+                           </div> 
+                    </div> 
+                </div> 
+          {% endblock %}<!-- end footer -->
+          {% block custom_footer_menu %}
+           {% include 'admin/m_footmenu.html' %}
+          {% endblock %}
+
+    </div>
+
+    <div class="modal fade" id="placemodal" role="dialog">
+    <div class="modal-dialog"> 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">切换城市,发现当地美食...</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row" >
+                <div class="col-sm-4 col-xs-4 padding-no"> 
+                    <select class="form-control" id="provice"> 
+                    </select>
+                </div>
+                <div class="col-sm-4 col-xs-4 padding-no"> 
+                    <select class="form-control" id="city"> 
+                    </select>
+                </div>
+                <div class="col-sm-4 col-xs-4 padding-no"> 
+                    <select class="form-control" id="county"> 
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-place-select" data-dismiss="modal">确定</button>
+        </div>
+      </div>
+      
+    </div>
+  </div><!--end model-->
+
+ <div class="modal fade" id="search-modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+ 
+        </div>
+        <div class="modal-body">
+             <form class="search-form" action="{% url 'search:search_all' %}" method='get'>
+                    <input type="submit" class="seachall" value=""/>
+                    <input type="text" name="keywords" class="form-control input-search" value="{{keywords}}" placeholder="&#xf002; 搜索美食或地名,开启美食之旅..." >  
+                    <input type="submit"   class="btn btn-primary " value="搜索"  >  
+             </form> 
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+      
+    </div>
+  </div><!--end model-->
+     <script type="text/javascript"  src="/static/js/jquery.message.js"></script> 
+     <script type="text/javascript"  src="/static/plugins/confirm/jquery.confirm.min.js"></script>  
+     <script type="text/javascript"  src="/static/js/place.js"></script>   
+        <script>
+            $(document).ready(function() {
+                var slideout = new Slideout({
+                    'panel': document.getElementById('main'),
+                    'menu': document.getElementById('menu'),
+                    'padding': 230,
+                    'tolerance': 60,
+                    'touch':false
+                });
+                
+                var slideoutpanelheight = window.innerHeight;
+                $('.slideout-panel').css('min-height', slideoutpanelheight);
+                
+                $('.slideout-panel').click(function(e) {
+                        if (slideout.isOpen())
+                        {
+                                slideout.toggle();
+                                $('.slideout-menu').css({'z-index':0});
+                        }
+                });
+                
+                $('.js-slideout-toggle').click(function(e) {
+                    slideout.toggle();
+                    e.stopPropagation();
+                    $('.slideout-menu').css({'z-index':10});
+                });
+            });
+       </script>
+	   {% block baidu_spider %}
+		<script>
+          
+		(function(){
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+			}
+			else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+       
+		</script>
+        {% endblock %}
+    {% block footer_script %}
+    {% endblock %}
+</body>
+</html>

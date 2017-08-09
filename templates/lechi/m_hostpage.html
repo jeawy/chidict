@@ -1,0 +1,174 @@
+{% extends "admin/m_base_site.html" %}
+{% block title %}吃典美食_收集全国各地正宗特色美食，做吃货行走江湖的字典{% endblock %} 
+{% load admin_static %}
+{% block extrahead %} {{ block.super }} 
+ <script src="/static/plugins/swiper-3.4.1/dist/js/swiper.min.js"></script>
+{{ media }}
+{% endblock %}
+{% block extrastyle %}{{ block.super }} 
+<link rel="stylesheet" type="text/css" media="screen" href="/static/plugins/swiper-3.4.1/dist/css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/m_hostpage.css" />
+
+{% endblock %}
+ {% block keywords%}吃典美食_各地特色美食_特色小吃_特色美食{%endblock%}
+  {% block description%}吃典美食_网罗了全国各地的正宗特色美食，特色小吃。立志为用户提供全面的、准确到、详细的“逛吃逛吃”指南。做吃货界的新华字典. {%endblock%}
+ 
+
+{% block content %}
+<div class="swiper-container">
+        <div class="swiper-wrapper">
+         
+            <div class="swiper-slide swiper-slide1">
+                <div class="kb_one_img">
+                  <a href="{% url 'kb:kb_detail' kb_one.kb.id %}">
+                      <img src="{{rootmedia}}/{{kb_one.kb.top_pic.name}}"/>
+                  </a>
+                  
+                </div>
+                <h1 class="home_h1"> 吃典美食</h1>
+                <hr class="home_hr">
+                    <div class="home_silder1_words">
+                      收集全国各地正宗特色美食
+                    </div> 
+                     <div class="home_silder1_words">
+                      做吃货行走江湖的字典
+                    </div> 
+            </div><!--end slider 1-->
+            <div class="swiper-slide swiper-slide2">
+              <div class="container">
+                <div class="row">
+                  
+                  {% for kb in kbs|slice:":4" %}
+                  <div class="col-sm-6 col-xs-6">
+                       <div class="week-container effect1">
+                          <a class="a-week-img" href="{% url 'kb:kb_detail' kb.kb.id %}">
+                            <img  class="new-img  new-img-{{kb.kb.id}} " src="/static/img/default.jpg" />
+                            </a>
+                            <div class="food-detail ">
+                              <div class="food-detail-title row-words ">
+                                <a href="{% url 'kb:kb_detail' kb.kb.id %}">
+                                  {{kb.kb.title}} 
+                                </a>
+                              </div> 
+                              <div class="row-words" > 
+                                {% for location in kb.kb.foodlocation_set.all %}
+                                <a target="_blank" href="{% url 'search:inplace' %}?placeid={{location.area.id}}">
+                                {{location.area.short_name}}
+                                </a>
+                                {% endfor %}
+                              </div> 
+                            </div>
+                          
+                        </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div><!--end slider 2-->
+          {% if kbs|length > 5 %}   
+         <div class="swiper-slide swiper-slide3">
+              <div class="container">
+                <div class="row">
+                  
+                  {% for kb in kbs|slice:"4:8" %}
+                  <div class="col-sm-6 col-xs-6">
+                       <div class="week-container effect1">
+                          <a class="a-week-img" href="{% url 'kb:kb_detail' kb.kb.id %}">
+                            <img  class="new-img  new-img-{{kb.kb.id}} " src="/static/img/default.jpg" />
+                            </a>
+                            <div class="food-detail ">
+                              <div class="food-detail-title row-words ">
+                                <a href="{% url 'kb:kb_detail' kb.kb.id %}">
+                                  {{kb.kb.title}} 
+                                </a>
+                              </div> 
+                              <div class="row-words" > 
+                                {% for location in kb.kb.foodlocation_set.all %}
+                                <a target="_blank" href="{% url 'search:inplace' %}?placeid={{location.area.id}}">
+                                {{location.area.short_name}}
+                                </a>
+                                {% endfor %}
+                              </div> 
+                            </div>
+                          
+                        </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div><!--end slider 3-->   
+             {% endif %}
+
+              <div class="swiper-slide swiper-slide4">
+              <div class="container">
+                <div class="row"> 
+                  <div class="col-sm-12 col-xs-12 text-center">  
+                            <div  >
+                              <img src="/static/img/dish.jpg" class="slider3-img" />
+                            </div>  
+                  </div>
+                   <div class="col-sm-12 col-xs-12 text-center">  
+                            <div class="new_home_silder1_words">
+                              <label>
+                              分享你所知道的特色美食
+                              </label>
+                            </div> 
+                            <div class="new_home_silder1_words">
+                              <label>
+                              更多的人将会感慨： 
+                               </label>
+                            </div> 
+                             <div class="new_home_silder1_words"> 
+                               <label>
+                              "原来还有这么多好吃的..."
+                               </label>
+                            </div> 
+                  </div>
+                   <div class="col-sm-12 col-xs-12 text-center col-newkb">  
+                            <a href="{% url 'kb:newkb' %}" class="newkb" >开始分享</a>  
+                  </div>
+                </div>
+              </div>
+            </div><!--end slider 4-->   
+        </div>
+        <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div> 
+</div>
+
+
+
+ {% endblock %}
+ 
+ 
+{% block footer_script %}
+<script>
+$(document).ready(function(){
+  var height = $(window).height();
+  height = height-50;
+  height = height-20;
+  $('.swiper-container').css({'height':height.toString()+'px'});
+  {% for kb in kbs|slice:":4" %}
+			   $('.new-img-{{kb.kb.id}}').attr('src', '{{rootmedia}}{{kb.kb.top_pic.name}}');
+			   $('.new-img-{{kb.kb.id}}').css('display', 'block');
+	{% endfor %}
+  {% for kb in kbs|slice:"4:8" %}
+			   $('.new-img-{{kb.kb.id}}').attr('src', '{{rootmedia}}{{kb.kb.top_pic.name}}');
+			   $('.new-img-{{kb.kb.id}}').css('display', 'block');
+	{% endfor %}
+			  var imgwidth = $('.week-container').width();
+			  $('.new-img').css({'height':imgwidth+'px','width':imgwidth+'px' });
+});
+</script>
+<script>        
+          var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal', 
+            loop: true, 
+            // 如果需要分页器
+            pagination: '.swiper-pagination', 
+          
+          });
+           
+  </script>
+
+{% endblock %}
+ 

@@ -1,0 +1,61 @@
+.input
+{
+      font-size: 1.3em;
+      width:96%; 
+      line-height: 30px;
+ }
+ 
+/* .button
+{  
+      font-size:5em;
+ }*/
+ #id_get_verify_code, #id_get_verify_code_fpwd
+{  
+    min-width:60%;
+    margin-bottom: 5px;
+ }
+ 
+ #id_user_form .sutmit_btn
+ {
+     min-width:60%;
+ }
+     
+ .star
+ {
+    font-size:1.5em;  
+    color:red;
+    font:bold; 
+ }
+
+ 
+.r_lable
+ { 
+    font-size: 1.3em;
+    width:200px;
+ }
+ td
+ {
+     line-height:20px;
+ }
+  
+ #id_get_verify_code_fpwd .disabled
+ {
+     background:red;
+ }
+ 
+ ul li
+ {
+     list-style-type:none;
+ }
+ .li_verify, .li_submit
+ {
+     padding-top:10px;
+     text-align: center;
+ }
+ 
+ ul{
+     padding-left: 2%;
+ }
+ 
+
+ 

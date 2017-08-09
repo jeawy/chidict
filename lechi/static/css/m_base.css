@@ -1,0 +1,142 @@
+body
+{ 
+  font-family:"Microsoft YaHei",FontAwesome, "Helvetica Neue",Helvetica,Arial,sans-serif;
+ 
+} 
+
+.fa { 
+    font-family: "Microsoft YaHei", FontAwesome !important;
+}
+li
+{
+  list-style: none;
+}
+
+pre{
+    white-space: pre-wrap; /* css-3 */ 
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */ 
+    white-space: -pre-wrap; /* Opera 4-6 */ 
+    white-space: -o-pre-wrap; /* Opera 7 */ 
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+
+    background-color: white;
+}
+
+#footer{ 
+    text-align: center;
+    background-color: rgba(0,0,0,0.04);    
+    margin-top:30px;
+    color:black; 
+    box-shadow: 0px -3px 3px -2px rgba(0,0,0,0.2) ;
+}
+
+
+.portraint{
+  width: 70px;
+  height: 70px;
+}
+.err_label 
+{
+    line-height:30px;
+    color: red;
+    width:97%;
+}
+ 
+.col-header
+{
+    float: right;
+}
+ .padding-no{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+ .custom_footer_menu
+ {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     color: white;
+     box-shadow: 0px -3px 3px -2px rgba(0,0,0,0.3);
+     z-index: 1000;
+ }
+
+ .row-fa a:link, .row-fa a:visited
+ {
+    color: #52b139;
+ }
+
+ .row-words a:link, .row-words a:visited
+ {
+     font-weight: 200;
+    color: rgba(0,0,0,0.7);
+ }
+ .fa-search-header
+ {
+     color: #85888d;
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: 1px;
+ }
+ 
+ .container-host
+ {
+     width: 50%;
+     box-shadow: 10px 0px 3px -2px rgba(0,0,0,0.3);
+ }
+
+ .yellow
+ {
+     color: #E54102;
+ }
+ a:focus, a:hover
+ {
+     text-decoration: none;
+ }
+
+ .row-words .location{
+    font-weight: 200;
+    color: rgba(0,0,0,0.7);
+    margin-bottom:0;
+    background-color: transparent;
+    font-family: "Microsoft Yahei","微软雅黑",Tahoma, Helvetica, Arial, STXihei, sans-serif;
+}
+.input-search
+{
+    border-radius: 15px;
+}
+.seachall
+{
+    display: none;
+}
+.padding-sm
+{
+    padding-left:2px;
+    padding-right:2px;
+}
+.padding-right-no
+{
+    padding-right:0;
+}
+.padding-left-no
+{
+    padding-left:0;
+}
+.height100
+{
+    max-height: 20px;
+    overflow: hidden;
+    color: rgba(0,0,0,0.5);
+}
+.promt
+{
+    color: rgba(0,0,0,0.3);
+    font-weight: 200;
+}
+.search-form
+{
+    display: flex;
+}
+.input-search
+{
+    width: 80%;
+}
